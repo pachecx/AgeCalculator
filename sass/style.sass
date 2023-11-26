@@ -11,6 +11,7 @@ body
     padding: 2rem
     border-radius: 20px 20px 70px 20px
     margin-top: 5rem
+    max-width: 840px
 
 .cards-inputs
     display: flex
@@ -21,12 +22,18 @@ body
     flex-direction: column
     gap: 9px
 
+    label
+        color: #787373
+        font-weight: bold
+        font-size: 1.2rem
+        letter-spacing: 2px
+
     input
-        width: 7.5rem
+        width: 6.5rem
         height: 4.3rem
         border-radius: 8px
         border: 2px solid #e5e0e0
-        font-size: 2.6rem
+        font-size: 2rem
         padding-left: 1.2rem
         font-weight: bold
 
@@ -43,7 +50,7 @@ body
     text-align: center
 
     position: absolute
-    left: 40%
+    right: 40%
     top: -25px
 
     img
@@ -57,3 +64,45 @@ body
         color: #874CFC
         margin-right: 1rem
         font-size: 3.5rem
+
+    h1
+        font-weight: bold
+
+//DeskTop
+@media (min-width: 720px)
+    .card        
+        margin: 10rem  auto
+        padding: 3.5rem
+
+
+    .input
+
+        label
+        font-size: 1.8rem
+        
+        input
+            width: 11rem
+            height: 6rem
+            font-size: 2.5rem
+            padding-left: 1.2rem
+    .line
+        .divSvg
+            width: 9.3rem
+            height: 9.4rem
+            margin-top: -20px
+            right: 0    
+
+            img
+                width: 50px
+                height: 50px
+                margin-top: 22px
+
+    .result
+    
+        h1
+            font-size: 6rem
+            margin: 0 auto
+        
+        span
+            font-size: 6rem
+
