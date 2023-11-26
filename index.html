@@ -13,7 +13,7 @@
 </head>
 <body>
     <div class="card">
-        <div class="cards-inputs">
+        <form class="cards-inputs">
             <div class="input">
                 <label for="day">DAY</label>
                 <input type="text" id="day" placeholder="DD"/>
@@ -26,16 +26,16 @@
                 <label for="year">YEAR</label>
                 <input type="text" id="year" placeholder="YYYY"/>
             </div>
-        </div>
+        </form>
         <div class="line">
-            <div class="divSvg">
+            <button type="button" class="divSvg">
                 <img src="./assets/icon-arrow.svg" alt="Imagem SVG">
-            </div>
+            </button>
         </div>
         <div class="result">
-            <h1><span>38</span>years</h1>
-            <h1><span>--</span>months</h1>
-            <h1><span>--</span>days</h1>
+            <h1><span class="yearText">38</span>years</h1>
+            <h1><span class="monthText">--</span>months</h1>
+            <h1><span class="dayText">--</span>days</h1>
         </div>
     </div>
 </body>
