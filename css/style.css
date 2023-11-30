@@ -21,6 +21,14 @@ body {
   display: flex;
   gap: 1rem;
 }
+.cards-inputs .alertSpan {
+  color: red;
+  font-size: 1.2rem;
+}
+
+.hide {
+  display: none;
+}
 
 .input {
   display: flex;
@@ -41,6 +49,7 @@ body {
   font-size: 2rem;
   padding-left: 1.2rem;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .line {
@@ -67,6 +76,11 @@ body {
   margin-top: 1.2rem;
 }
 
+.divSvg:hover {
+  background: black;
+  transition: 1s;
+}
+
 .result span {
   color: #874CFC;
   margin-right: 1rem;
@@ -80,9 +94,6 @@ body {
   .card {
     margin: 10rem auto;
     padding: 3.5rem;
-  }
-  .input {
-    font-size: 1.8rem;
   }
   .input input {
     width: 11rem;
@@ -99,7 +110,7 @@ body {
   .line .divSvg img {
     width: 50px;
     height: 50px;
-    margin-top: 22px;
+    margin-top: 2px;
   }
   .result h1 {
     font-size: 6rem;

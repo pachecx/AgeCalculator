@@ -15,16 +15,19 @@
     <div class="card">
         <form class="cards-inputs">
             <div class="input">
-                <label for="day">DAY</label>
+                <label for="day" class="LabelRed">DAY</label>
                 <input type="text" id="day" placeholder="DD"/>
+                <span class="alertSpan hide">Must be a valid day</span>
             </div>
             <div class="input">
                 <label for="month">MONTH</label>
                 <input type="text" id="month" placeholder="MM"/>
+                <span class="alertSpan hide">Must be a valid month</span>
             </div>
             <div class="input">
                 <label for="year">YEAR</label>
                 <input type="text" id="year" placeholder="YYYY"/>
+                <span class="alertSpan hide">Must be a valid year</span>
             </div>
         </form>
         <div class="line">
@@ -33,7 +36,7 @@
             </button>
         </div>
         <div class="result">
-            <h1><span class="yearText">38</span>years</h1>
+            <h1><span class="yearText">--</span>years</h1>
             <h1><span class="monthText">--</span>months</h1>
             <h1><span class="dayText">--</span>days</h1>
         </div>
