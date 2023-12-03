@@ -7,16 +7,34 @@ const textDay = document.querySelector('.dayText');
 const textMonth = document.querySelector('.monthText');
 const textYear = document.querySelector('.yearText');
 
+const spanAlertD = document.querySelector('.alertSpanD');
+const spanAlertM = document.querySelector('.alertSpanM');
+const spanAlertY = document.querySelector('.alertSpanY');
+const inputAlert = document.querySelector('#month');
+
+    // let alertSpand = spanAlertD;
+    // let alertSpanm = spanAlertM;
+    // let alertSpany = spanAlertY;
 
 
-const spanAlert = document.querySelector('.alertSpan');
+function invalid(){
+    spanAlertD.classList.remove('hide')
+    spanAlertM.classList.remove('hide')
+    spanAlertY.classList.remove('hide')
+   
+}
 
+function valid(){
+    spanAlertD.classList.add('hide')
+    spanAlertM.classList.add('hide')
+    spanAlertY.classList.add('hide')
+}
 
 
 function calc(){
     let data = new Date();
-    let day = Number(Day.value) 
-    let month = Number(Month.value)
+    let day = Number(Day.value);
+    let month = Number(Month.value);
     let year =  Number(Year.value);
 
     daySis = data.getDate();
@@ -24,15 +42,22 @@ function calc(){
     yearSis = data.getFullYear();
     negative = day - daySis;
 
-    let alertSpan = spanAlert;
-
     if(!day || !month || !year){
-        alertSpan.classList.remove('hide')
+        invalid()
         return
     }
 
     if(year > yearSis || month > 12 || day > 30){
-        console.log("teste validação")
+        invalid()
+        return
+    }
+
+    //Testar essa logica
+    if(day > daySis){
+        textYear.textContent = yearSis - year -1;
+        textMonth.textContent = monthSis - 1;
+        textDay.textContent = Math.abs(negative);
+        valid()
         return
     }
 
@@ -40,13 +65,14 @@ function calc(){
         textYear.textContent = yearSis - year -1;
         textMonth.textContent = monthSis;
         textDay.textContent = Math.abs(negative);
+        valid()
         return
     }
 
     textYear.textContent = yearSis - year;
     textMonth.textContent = month - monthSis;
     textDay.textContent = Math.abs(negative);
-   
+    valid()
 } 
 
 btn.addEventListener('click', function(){
@@ -54,3 +80,5 @@ btn.addEventListener('click', function(){
 });
 
 //Falta colocar borda vermelha nos input quando as datas forem invalidas
+//Permitir apenas numeros
+//verficar logica
