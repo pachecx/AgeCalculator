@@ -10,75 +10,72 @@ const textYear = document.querySelector('.yearText');
 const spanAlertD = document.querySelector('.alertSpanD');
 const spanAlertM = document.querySelector('.alertSpanM');
 const spanAlertY = document.querySelector('.alertSpanY');
-const inputAlert = document.querySelector('#month');
 
-    // let alertSpand = spanAlertD;
-    // let alertSpanm = spanAlertM;
-    // let alertSpany = spanAlertY;
-
-
-function invalid(){
-    spanAlertD.classList.remove('hide')
-    spanAlertM.classList.remove('hide')
-    spanAlertY.classList.remove('hide')
-   
+function invalid() {
+    spanAlertD.classList.remove('hide');
+    spanAlertM.classList.remove('hide');
+    spanAlertY.classList.remove('hide');
 }
 
-function valid(){
-    spanAlertD.classList.add('hide')
-    spanAlertM.classList.add('hide')
-    spanAlertY.classList.add('hide')
+function valid() {
+    spanAlertD.classList.add('hide');
+    spanAlertM.classList.add('hide');
+    spanAlertY.classList.add('hide');
+}
+
+function calc() {
+    // Obter os valores de entrada
+    const day = parseInt(Day.value);
+    const month = parseInt(Month.value);
+    const year = parseInt(Year.value);
+
+    // Validar a entrada
+    if (isNaN(day) || day < 1 || day > 30 || isNaN(month) || month < 1 || month > 12 || isNaN(year) || year > new Date().getFullYear()) {
+        invalid();
+        return;
+    } else {
+        valid();
+    }
+
+    // Data de nascimento
+    const dataNascimento = new Date(`${year}-${month}-${day}`);
+
+    // Data atual
+    const dataAtual = new Date();
+
+    // Cálculos
+    let diffAnos = dataAtual.getFullYear() - dataNascimento.getFullYear();
+    let diffMeses = dataAtual.getMonth() - dataNascimento.getMonth();
+    let diffDias = dataAtual.getDate() - dataNascimento.getDate();
+
+    // Ajuste para dias negativos ou zero
+    if (diffDias <= 0) {
+        const ultimoDiaMesAnterior = new Date(dataAtual.getFullYear(), dataAtual.getMonth(), 0).getDate();
+        const diasRestantes = ultimoDiaMesAnterior + diffDias - 1 ;
+
+        // Atualiza os valores de meses e dias
+        diffMeses -= 1;
+        diffDias = diasRestantes;
+    }
+
+    // Atualiza os valores de meses e dias para dezembro
+    if (diffMeses < 0) {
+        diffMeses += 12;
+        diffAnos -= 1;
+    }
+
+   if (month >= 1 && month <= 9){
+       diffDias += 1
+    }
+
+
+    // Atualiza o resultado no HTML
+    textYear.textContent = diffAnos;
+    textMonth.textContent = diffMeses;
+    textDay.textContent = diffDias;
 }
 
 
-function calc(){
-    let data = new Date();
-    let day = Number(Day.value);
-    let month = Number(Month.value);
-    let year =  Number(Year.value);
-
-    daySis = data.getDate();
-    monthSis = data.getMonth() + 1;
-    yearSis = data.getFullYear();
-    negative = day - daySis;
-
-    if(!day || !month || !year){
-        invalid()
-        return
-    }
-
-    if(year > yearSis || month > 12 || day > 30){
-        invalid()
-        return
-    }
-
-    //Testar essa logica
-    if(day > daySis){
-        textYear.textContent = yearSis - year -1;
-        textMonth.textContent = monthSis - 1;
-        textDay.textContent = Math.abs(negative);
-        valid()
-        return
-    }
-
-    if(month > monthSis){
-        textYear.textContent = yearSis - year -1;
-        textMonth.textContent = monthSis;
-        textDay.textContent = Math.abs(negative);
-        valid()
-        return
-    }
-
-    textYear.textContent = yearSis - year;
-    textMonth.textContent = month - monthSis;
-    textDay.textContent = Math.abs(negative);
-    valid()
-} 
-
-btn.addEventListener('click', function(){
-   calc()
+btn.addEventListener('click', function () {
+    calc();
 });
-
-//Falta colocar borda vermelha nos input quando as datas forem invalidas
-//Permitir apenas numeros
-//verficar logica
