@@ -25,6 +25,10 @@ function valid() {
     spanAlertD.classList.add('hide');
     spanAlertM.classList.add('hide');
     spanAlertY.classList.add('hide');
+
+    Day.style.border ='1px solid #e5e0e0';
+    Month.style.border ='1px solid #e5e0e0';
+    Year.style.border ='1px solid #e5e0e0';
 }
 
 function calc() {
