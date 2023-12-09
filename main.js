@@ -15,6 +15,10 @@ function invalid() {
     spanAlertD.classList.remove('hide');
     spanAlertM.classList.remove('hide');
     spanAlertY.classList.remove('hide');
+
+    Day.style.border ='1px solid red';
+    Month.style.border ='1px solid red';
+    Year.style.border ='1px solid red';
 }
 
 function valid() {
@@ -68,13 +72,11 @@ function calc() {
        diffDias += 1
     }
 
-
     // Atualiza o resultado no HTML
     textYear.textContent = diffAnos;
     textMonth.textContent = diffMeses;
     textDay.textContent = diffDias;
 }
-
 
 btn.addEventListener('click', function () {
     calc();
